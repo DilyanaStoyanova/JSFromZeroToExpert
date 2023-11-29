@@ -192,6 +192,7 @@ if (friends.includes("Steven")) {
 }
 */
 //Challenge
+/*
 function calcTip(bill) {
   const tip = bill * (bill > 50 && bill < 300 ? 0.15 : 0.2);
   return tip;
@@ -202,3 +203,248 @@ const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
 const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+*/
+//////////////////////////////////
+//Object
+/*
+const dilyanaArray = [
+  "Dilyana",
+  "Stoyanova",
+  2037 - 1986,
+  "programmer",
+  ["Maria", "Bob", "Roger"],
+];
+
+const dilyana = {
+  firstname: "Dilyana",
+  lastName: "Stoyanova",
+  age: 2037 - 1986,
+  job: "programmer",
+  friends: ["Maria", "Bob", "Roger"],
+};
+*/
+//////////////////////////////////
+//Dot vs bracket notation
+/*
+const dilyana = {
+  firstName: "Dilyana",
+  lastName: "Stoyanova",
+  age: 2037 - 1986,
+  job: "programmer",
+  friends: ["Maria", "Bob", "Roger"],
+};
+
+console.log(dilyana.lastName);
+console.log(dilyana["lastName"]);
+
+const nameKey = "Name";
+
+console.log(dilyana["first" + nameKey]);
+console.log(dilyana["last" + nameKey]);
+
+const interestedIn = prompt(
+  "What do you want to know about Dilyana? Choose between firstName, lastName, age, job, friends"
+);
+
+if (dilyana[interestedIn]) {
+  console.log(dilyana[interestedIn]);
+} else {
+  console.log(
+    "Wrong request!Choose between firstName, lastName, age, job, friends"
+  );
+}
+
+dilyana.location = "Bulgaria";
+dilyana["twitter"] = "@dilyana";
+console.log(dilyana);
+
+console.log(
+  `${dilyana.firstName} has ${dilyana.friends.length} friends, and her best friend is called ${dilyana.friends[0]}`
+);
+*/
+//////////////////////////////////
+//Object methods
+/*
+const dilyana = {
+  firstName: "Dilyana",
+  lastName: "Stoyanova",
+  birthYear: 1986,
+  job: "programmer",
+  friends: ["Maria", "Bob", "Roger"],
+  hasDriversLicense: true,
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and she has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+  },
+};
+
+console.log(dilyana.calcAge());
+
+console.log(dilyana.age);
+console.log(dilyana.age);
+console.log(dilyana.age);
+
+console.log(dilyana.getSummary());
+*/
+//Challenge
+/*
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+john.calcBMI();
+mark.calcBMI();
+
+if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+  );
+} else {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+  );
+}
+*/
+//////////////////////////////////
+//For loop
+/*
+for (let i = 1; i <= 10; i++) {
+  console.log(`Lifting weights repetition ${i}`);
+}
+*/
+//////////////////////////////////
+//Looping arrays, continue, break
+/*
+const dilyanaArray = [
+  "Dilyana",
+  "Stoyanova",
+  2037 - 1986,
+  "programmer",
+  ["Maria", "Bob", "Roger"],
+  true,
+];
+const types = [];
+for (let i = 0; i < dilyanaArray.length; i++) {
+  console.log(dilyanaArray[i], typeof dilyanaArray[i]);
+  // types[i] = typeof dilyanaArray[i];
+  types.push(typeof dilyanaArray[i]);
+}
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+
+console.log(ages);
+
+console.log("---ONLY STRINGS---");
+for (let i = 0; i < dilyanaArray.length; i++) {
+  if (typeof dilyanaArray[i] !== "string") continue;
+  console.log(dilyanaArray[i], typeof dilyanaArray[i]);
+}
+
+console.log("---BREAK WITH NUMBER---");
+for (let i = 0; i < dilyanaArray.length; i++) {
+  if (typeof dilyanaArray[i] === "number") break;
+
+  console.log(dilyanaArray[i], typeof dilyanaArray[i]);
+}
+*/
+//////////////////////////////////
+//Looping backwards, loops in loops
+/*
+const dilyanaArray = [
+  "Dilyana",
+  "Stoyanova",
+  2037 - 1986,
+  "programmer",
+  ["Maria", "Bob", "Roger"],
+  true,
+];
+
+for (let i = dilyanaArray.length - 1; i >= 0; i--) {
+  console.log(i, dilyanaArray[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+  console.log(`-----Starting exercise ${exercise}`);
+
+  for (let repetition = 1; repetition <= 5; repetition++) {
+    console.log(
+      `Exercise ${exercise}: Lifting weight repetition ${repetition}`
+    );
+  }
+}
+*/
+//////////////////////////////////
+//While loop
+/*
+let i = 1;
+while (i <= 10) {
+  console.log(`While: Lifting weights repetition ${i}`);
+  i++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log("You are about to end...");
+}
+*/
+//Challenge
+/*
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(bills[i] + tips[i]);
+}
+
+function calcAverage(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  return sum / arr.length;
+}
+
+console.log(calcAverage(totals));
+*/
