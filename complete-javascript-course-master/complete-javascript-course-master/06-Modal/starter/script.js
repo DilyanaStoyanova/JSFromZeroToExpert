@@ -1,6 +1,5 @@
 'use strict';
 
-//
 const btnsShowModal = document.querySelectorAll('.show-modal');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -22,3 +21,9 @@ const closeModal = function () {
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
